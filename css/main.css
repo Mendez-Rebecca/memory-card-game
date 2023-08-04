@@ -58,3 +58,28 @@ button {
     object-fit: cover;
     margin: auto;
 }
+
+#countdown-timer {
+    visibility: hidden;
+    height: 10vmin;
+    width: 10vmin;
+    border: 1vmin solid grey;
+    border-radius: 50%;
+    font-size: 5vmin;
+    padding: 1vmin;
+    justify-self: center;
+    align-self: center;
+    color: purple;
+}
+
+/* .card-back {
+    background-image: url('https://i.imgur.com/WRpX5oT.png');
+    width: 15vmin;
+    height: 15vmin;
+    object-fit: cover;
+    margin: auto;
+} */
+
+/* .display {
+    display: none;
+} */

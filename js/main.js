@@ -9,22 +9,33 @@ let successes;
 
 
 /*----- cached element references -----*/
-
+const buttonEl = document.querySelector('button');
 
 
 /*----- event listeners -----*/
 // create an event listener that handles the click on the cards (name it handleCards)
 // create an event listener that handles the click of the button (name it handleButton)
+
+document.querySelector('button').addEventListener('click', handleButton);
+
     // need a button for start game, try again
 
 
 /*----- functions -----*/
+function handleButton(evt) {
+    if (evt.target.tagName !== 'BUTTON') return;
+    buttonEl.style.visibility = 'hidden';
+    countdown();
+}
 
+function countdown() {
 
+}
 
 /*----- Pseudo -----*/
 
 /*
+
 1a. Create an interface that explains the instructions of the game.
     a. The game does not begin until the player clicks the "start game" button.
     b. Initialize the game when this button is clicked.
