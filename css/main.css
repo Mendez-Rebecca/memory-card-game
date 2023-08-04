@@ -7,22 +7,27 @@ body {
     height: 100vh;
     margin: 0;
     display: grid;
-    /* grid-template-columns: 1fr 4fr; */
     grid-template-rows: 50vh 1fr 30vh;
     justify-content: center;
     align-items: center;
 }
 
+h1 {
+    text-align: center;
+    margin-bottom: 3vmin;
+}
+
 #side-content {
-    border: solid red;
-    margin-left: auto;
+    margin-left: 7vmin;
     margin-right: auto;
     position: absolute;
     text-align: center;
 }
 
 main {
-    border: solid blue;
+    margin-top: 50vmin;
+    margin-right: 70vmin;
+    margin-bottom: 0;
 }
 
 button {
@@ -30,9 +35,9 @@ button {
     color: #E8D9DC;
     border-radius: 4vmin;
     width: 15vmin;
-    margin: 6vmin;
+    margin: 35vmin;
     font-size: 2vmin;
-    margin-left: 8vmin;
+    margin-left: 20vmin;
 }
 
 .countdown-text {
@@ -43,10 +48,13 @@ button {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 5vw);
+    grid-row-gap: 7vmin;
+    grid-column-gap: 4vmin;
 }
 
 #cards img {
     width: 15vmin;
     height: 15vmin;
     object-fit: cover;
+    margin: auto;
 }
