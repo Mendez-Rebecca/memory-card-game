@@ -18,6 +18,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     position: absolute;
+    text-align: center;
+
 }
 
 main {
@@ -27,5 +29,13 @@ main {
 button {
     background: #663F46;
     color: #E8D9DC;
-    border-radius: 10px;
+    border-radius: 4vmin;
+    width: 15vmin;
+    margin: 6vmin;
+    font-size: 2vmin;
+    margin-left: 8vmin;
+}
+
+.countdown-text {
+    margin-bottom: 15vmin;
 }
