@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    /* grid-template-columns: 1fr 4fr; */
+    grid-template-rows: 50vh 1fr 30vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#side-content {
+    border: solid red;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+}
+
+main {
+    border: solid blue;
+}
+
+button {
+    background: #663F46;
+    color: #E8D9DC;
+    border-radius: 10px;
+}
