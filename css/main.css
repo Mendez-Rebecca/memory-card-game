@@ -19,7 +19,6 @@ body {
     margin-right: auto;
     position: absolute;
     text-align: center;
-
 }
 
 main {
@@ -38,4 +37,16 @@ button {
 
 .countdown-text {
     margin-bottom: 15vmin;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 5vw);
+}
+
+#cards img {
+    width: 15vmin;
+    height: 15vmin;
+    object-fit: cover;
 }
