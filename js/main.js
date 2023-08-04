@@ -10,6 +10,7 @@ let successes;
 
 /*----- cached element references -----*/
 const buttonEl = document.querySelector('button');
+const countdownEl = document.getElementById('countdown-timer');
 
 
 /*----- event listeners -----*/
@@ -29,7 +30,24 @@ function handleButton(evt) {
 }
 
 function countdown() {
+    let count = 3;
+    countdownEl.style.visibility = 'visible';
+    countdownEl.innerText = count;
+    const timer = setInterval(function() {
+        count--;
+        if (count) {
+            countdownEl.innerText = count;
+        } else {
+            clearInterval(timer);
+            countdownEl.style.visibility = 'hidden';
+            init();
+        }
+    }, 1000)
 
+}
+
+function init() {
+    console.log(`the game has started`)
 }
 
 /*----- Pseudo -----*/
