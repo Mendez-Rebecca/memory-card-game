@@ -57,28 +57,34 @@ button {
     height: 15vmin;
     object-fit: cover;
     margin: auto;
+    visibility: visible;
 }
 
 #countdown-timer {
     visibility: hidden;
+    position: relative;
+    bottom: 10vmin;
+    margin-left: 9vmin;
     height: 10vmin;
     width: 10vmin;
-    border: 1vmin solid grey;
-    border-radius: 50%;
+    border: 1vmin solid #E8D9DC;
+    border-radius: 30%;
     font-size: 5vmin;
     padding: 1vmin;
     justify-self: center;
     align-self: center;
-    color: purple;
+    color: #E8D9DC;
+    background-color: #663F46;
 }
 
-/* .card-back {
+.card-back {
+    visibility: hidden;
     background-image: url('https://i.imgur.com/WRpX5oT.png');
     width: 15vmin;
     height: 15vmin;
     object-fit: cover;
     margin: auto;
-} */
+}
 
 /* .display {
     display: none;

@@ -6,6 +6,7 @@
 let cards;
 let attempts;
 let successes;
+let clicks;
 
 
 /*----- cached element references -----*/
@@ -47,7 +48,23 @@ function countdown() {
 }
 
 function init() {
-    console.log(`the game has started`)
+    guesses = 10;
+    successes = 0;
+    clicks = 0;
+    render();
+}
+
+function render() {
+    renderCards();
+    renderGuesses();
+}
+
+function renderCards() {
+
+}
+
+function renderGuesses() {
+
 }
 
 /*----- Pseudo -----*/
