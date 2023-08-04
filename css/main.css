@@ -25,7 +25,8 @@ h1 {
 }
 
 main {
-    margin-top: 50vmin;
+    border: solid blue;
+    margin-top: 150vmin;
     margin-right: 70vmin;
     margin-bottom: 0;
 }
@@ -35,7 +36,7 @@ button {
     color: #E8D9DC;
     border-radius: 4vmin;
     width: 15vmin;
-    margin: 35vmin;
+    margin: 42vmin;
     font-size: 2vmin;
     margin-left: 20vmin;
 }
@@ -44,20 +45,38 @@ button {
     margin-bottom: 15vmin;
 }
 
-#cards {
+#card-front {
+    visibility: visible;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 5vw);
     grid-row-gap: 7vmin;
     grid-column-gap: 4vmin;
+    z-index: 0;
 }
 
-#cards img {
+#card-front img {
     width: 15vmin;
     height: 15vmin;
     object-fit: cover;
     margin: auto;
-    visibility: visible;
+}
+
+#card-back {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 5vw);
+    grid-row-gap: 7vmin;
+    grid-column-gap: 4vmin;
+    z-index: 1;
+}
+
+#card-back img {
+    width: 15vmin;
+    height: 15vmin;
+    object-fit: cover;
+    margin: auto;
 }
 
 #countdown-timer {
@@ -76,16 +95,3 @@ button {
     color: #E8D9DC;
     background-color: #663F46;
 }
-
-.card-back {
-    visibility: hidden;
-    background-image: url('https://i.imgur.com/WRpX5oT.png');
-    width: 15vmin;
-    height: 15vmin;
-    object-fit: cover;
-    margin: auto;
-}
-
-/* .display {
-    display: none;
-} */

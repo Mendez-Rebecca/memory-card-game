@@ -12,6 +12,8 @@ let clicks;
 /*----- cached element references -----*/
 const buttonEl = document.querySelector('button');
 const countdownEl = document.getElementById('countdown-timer');
+const cardFront = document.getElementById('card-front');
+const cardBack = document.getElementById('card-back');
 
 
 /*----- event listeners -----*/
@@ -60,7 +62,8 @@ function render() {
 }
 
 function renderCards() {
-
+    cardFront.style.visibility = 'hidden';
+    cardBack.style.visibility = 'visible';
 }
 
 function renderGuesses() {
