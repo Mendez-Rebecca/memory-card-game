@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #04648B;
+}
+
+.card-container {
+    height: 500px;
+    width: 500px;
+    background: white;
+    border-radius: 5px;
+}
+
+.cards, .card, .card-front {
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+}
+
+.cards {
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.card .back-image img{
+    max-width: 100px;
+}
+
+.card .front-image img{
+    max-width: 100px;
+}
