@@ -1,9 +1,7 @@
 /*----- constants -----*/
 
 
-
 /*----- app's state (variables) -----*/
-let cards;
 let guesses;
 let successes;
 let clicks;

@@ -3,52 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Card Game</title>
+    <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
 
 <body>
-    <div id="side-content">
-        <h2 class="countdown-text">Countdown</h2>
-        <div id="countdown-timer"></div>
-        <h2 class="guess-text">Guesses Remaining</h2>
-        <div id="guesses-remaining"></div>
-    </div>
-    <main>
-        <h1>Memory Card Game</h1>
-        <div class="card-container">
-            <div class="card" id="card-front">
-                <div><img src="https://i.imgur.com/JO9IG2c.png"></div>
-                <div><img src="https://i.imgur.com/JO9IG2c.png"></div>
-                <div><img src="https://i.imgur.com/G6P9Cto.png"></div>
-                <div><img src="https://i.imgur.com/G6P9Cto.png"></div>
-                <div><img src="https://i.imgur.com/5b2QOp0.png"></div>
-                <div><img src="https://i.imgur.com/5b2QOp0.png"></div>
-                <div><img src="https://i.imgur.com/WyYJwLd.png"></div>
-                <div><img src="https://i.imgur.com/WyYJwLd.png"></div>
-                <div><img src="https://i.imgur.com/Iwsx0Q7.png"></div>
-                <div><img src="https://i.imgur.com/Iwsx0Q7.png"></div>
-                <div><img src="https://i.imgur.com/xZrENuO.png"></div>
-                <div><img src="https://i.imgur.com/xZrENuO.png"></div>
+    <div class="card-container">
+        <div class="cards">
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/xZrENuO.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
             </div>
-
-            <div class="card" id="card-back">
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
-                <div><img src="https://i.imgur.com/WRpX5oT.png"></div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/Iwsx0Q7.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/WyYJwLd.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/5b2QOp0.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/G6P9Cto.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/JO9IG2c.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/xZrENuO.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/Iwsx0Q7.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/WyYJwLd.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/5b2QOp0.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/G6P9Cto.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <span class="front-image"><img src="https://i.imgur.com/JO9IG2c.png"</span>
+                </div>
+                <div class="back-image">
+                    <img src="https://i.imgur.com/WRpX5oT.png" alt="card-back">
+                </div>
             </div>
         </div>
-    </main>
-    <button>Start Game</button>
+    </div>
 </body>
 </html>
