@@ -26,7 +26,7 @@ h1 {
 
 main {
     border: solid blue;
-    margin-top: 150vmin;
+    margin-top: 50vmin;
     margin-right: 70vmin;
     margin-bottom: 0;
 }
@@ -36,13 +36,19 @@ button {
     color: #E8D9DC;
     border-radius: 4vmin;
     width: 15vmin;
-    margin: 42vmin;
+    margin: 35vmin;
     font-size: 2vmin;
     margin-left: 20vmin;
 }
 
 .countdown-text {
     margin-bottom: 15vmin;
+}
+
+#card-container {
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 #card-front {
@@ -60,6 +66,10 @@ button {
     height: 15vmin;
     object-fit: cover;
     margin: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 #card-back {
@@ -69,7 +79,13 @@ button {
     grid-template-rows: repeat(5, 5vw);
     grid-row-gap: 7vmin;
     grid-column-gap: 4vmin;
-    z-index: 1;
+    z-index: 2;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    border: 1px green solid;
+    margin-left: 35.7vmin;
+    margin-top: 12.2vmin;
 }
 
 #card-back img {
