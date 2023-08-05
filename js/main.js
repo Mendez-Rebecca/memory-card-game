@@ -2,7 +2,6 @@
 
 
 /*----- app's state (variables) -----*/
-let guesses;
 let successes;
 let clicks;
 
@@ -61,21 +60,11 @@ function init() {
     successes = 0;
     clicks = 0;
     renderCards();
-    render();
-}
-
-function render() {
-    renderGuesses();
 }
 
 function renderCards() {
     cardFront.style.visibility = 'hidden';
     cardBack.style.visibility = 'visible';
-}
-
-function renderGuesses() {
-    guessesEl.style.visibility = 'visible';
-    guessesEl.innerText = `${guesses}`;
 }
 
 /*----- Pseudo -----*/
