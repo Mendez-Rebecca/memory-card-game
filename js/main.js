@@ -4,7 +4,7 @@
 
 /*----- app's state (variables) -----*/
 let cards;
-let attempts;
+let guesses;
 let successes;
 let clicks;
 
@@ -14,6 +14,7 @@ const buttonEl = document.querySelector('button');
 const countdownEl = document.getElementById('countdown-timer');
 const cardFront = document.getElementById('card-front');
 const cardBack = document.getElementById('card-back');
+const guessesEl = document.getElementById('guesses-remaining');
 
 
 /*----- event listeners -----*/
@@ -21,11 +22,19 @@ const cardBack = document.getElementById('card-back');
 // create an event listener that handles the click of the button (name it handleButton)
 
 document.querySelector('button').addEventListener('click', handleButton);
+document.getElementById('card-back').addEventListener('click', handleCards);
 
     // need a button for start game, try again
 
 
 /*----- functions -----*/
+function handleCards(evt) {
+    console.log(evt)
+    if (evt.target.tagName !== 'IMG')  return;
+    cardBack.style.visibility = 'hidden';
+    cardFront.style.visibility = 'visible';
+}
+
 function handleButton(evt) {
     if (evt.target.tagName !== 'BUTTON') return;
     buttonEl.style.visibility = 'hidden';
@@ -53,11 +62,11 @@ function init() {
     guesses = 10;
     successes = 0;
     clicks = 0;
+    renderCards();
     render();
 }
 
 function render() {
-    renderCards();
     renderGuesses();
 }
 
@@ -67,7 +76,8 @@ function renderCards() {
 }
 
 function renderGuesses() {
-
+    guessesEl.style.visibility = 'visible';
+    guessesEl.innerText = `${guesses}`;
 }
 
 /*----- Pseudo -----*/

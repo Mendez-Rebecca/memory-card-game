@@ -98,8 +98,24 @@ button {
 #countdown-timer {
     visibility: hidden;
     position: relative;
-    bottom: 10vmin;
-    margin-left: 9vmin;
+    bottom: 12vmin;
+    margin-left: 7vmin;
+    height: 10vmin;
+    width: 10vmin;
+    border: 1vmin solid #E8D9DC;
+    border-radius: 30%;
+    font-size: 5vmin;
+    padding: 1vmin;
+    justify-self: center;
+    align-self: center;
+    color: #E8D9DC;
+    background-color: #663F46;
+}
+
+#guesses-remaining {
+    visibility: hidden;
+    position: relative;
+    margin-left: 7vmin;
     height: 10vmin;
     width: 10vmin;
     border: 1vmin solid #E8D9DC;
