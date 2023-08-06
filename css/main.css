@@ -58,6 +58,14 @@ button {
     box-shadow: 2px 2px 2px #065774;
 }
 
+.card {
+    position: relative;
+    height: calc(25% - 10px);
+    width: calc(25% - 10px);
+    margin: 5px;
+    cursor: pointer;
+}
+
 .card-container {
     height: 500px;
     width: 500px;
@@ -66,7 +74,7 @@ button {
     padding: 20px;
 }
 
-.cards, .card, .card-front {
+.cards, .card, .view {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,9 +95,18 @@ button {
 .card .back-image img{
     display: none;
     border-radius: 5px;
+    max-width: 100px;
 }
 
 .card .front-image img{
     max-width: 100px;
     border-radius: 5px;
+}
+
+.card.flip-over .back-image img {
+    display: none;
+}
+
+.card.flip-over .front-image img {
+    display: block;
 }

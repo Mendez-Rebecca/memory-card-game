@@ -1,17 +1,16 @@
 /*----- constants -----*/
-
+const cards = document.querySelectorAll('.card')
 
 /*----- app's state (variables) -----*/
 let successes;
 let clicks;
+let firstCard;
+let secondCard;
 
 
 /*----- cached element references -----*/
 const buttonEl = document.querySelector('button');
 const countdownEl = document.getElementById('countdown-timer');
-const cardFront = document.getElementById('card-front');
-const cardBack = document.getElementById('card-back');
-const guessesEl = document.getElementById('guesses-remaining');
 
 
 /*----- event listeners -----*/
@@ -19,17 +18,31 @@ const guessesEl = document.getElementById('guesses-remaining');
 // create an event listener that handles the click of the button (name it handleButton)
 
 document.querySelector('button').addEventListener('click', handleButton);
-document.getElementById('card-back').addEventListener('click', handleCards);
 
     // need a button for start game, try again
 
 
 /*----- functions -----*/
+cards.forEach(card => {
+    card.addEventListener('click', handleCards);
+})
+
 function handleCards(evt) {
-    console.log(evt)
-    if (evt.target.tagName !== 'IMG')  return;
-    cardBack.style.visibility = 'hidden';
-    cardFront.style.visibility = 'visible';
+    let clickedCard = evt.target;
+    if (clickedCard !== firstCard) {
+        clickedCard.classList.add('flip-over')
+        if (!firstCard) {
+            return firstCard = clickedCard;
+        }
+        secondCard = clickedCard;
+
+        let firstCardImg = firstCard.querySelector('img');
+        let secondCardImg = secondCard.querySelector('img');
+        cardMatch(firstCardImg, secondCardImg);
+    }
+}
+
+function cardMatch(firstImg, secondImg) {
 }
 
 function handleButton(evt) {
@@ -49,22 +62,24 @@ function countdown() {
         } else {
             clearInterval(timer);
             countdownEl.style.visibility = 'hidden';
-            init();
+            renderCards();
         }
     }, 1000)
-
-}
-
-function init() {
-    guesses = 10;
-    successes = 0;
-    clicks = 0;
-    renderCards();
 }
 
 function renderCards() {
-    cardFront.style.visibility = 'hidden';
-    cardBack.style.visibility = 'visible';
+    cards.forEach(card => {
+        const frontImage = card.querySelector('.front-image img');
+        const backImage = card.querySelector('.back-image img');
+
+        if (frontImage.style.display !== 'none') {
+            frontImage.style.display = 'none';
+            backImage.style.display = 'block';
+        } else {
+            backImage.style.display = 'none';
+            frontImage.style.display = 'block';
+        }
+    });
 }
 
 /*----- Pseudo -----*/
