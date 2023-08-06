@@ -1,11 +1,27 @@
 /*----- constants -----*/
 const cards = document.querySelectorAll('.card')
 
+const board = [
+  { id: 1, cardBack: 'back1' },
+  { id: 2, cardBack: 'back2' },
+  { id: 3, cardBack: 'back3' },
+  { id: 4, cardBack: 'back4' },
+  { id: 5, cardBack: 'back5' },
+  { id: 6, cardBack: 'back6' },
+  { id: 7, cardBack: 'back7' },
+  { id: 8, cardBack: 'back8' },
+  { id: 9, cardBack: 'back9' },
+  { id: 10, cardBack: 'back10' },
+  { id: 11, cardBack: 'back11' },
+  { id: 12, cardBack: 'back12' },
+];
+
 /*----- app's state (variables) -----*/
 let successes;
 let clicks;
 let firstCard;
 let secondCard;
+let isActive = false;
 
 
 /*----- cached element references -----*/
@@ -29,20 +45,45 @@ cards.forEach(card => {
 
 function handleCards(evt) {
     let clickedCard = evt.target;
+    let backCardId = clickedCard.id;
+
+    if (evt.target.tagName !== 'IMG') return;
     if (clickedCard !== firstCard) {
         clickedCard.classList.add('flip-over')
-        if (!firstCard) {
-            return firstCard = clickedCard;
-        }
-        secondCard = clickedCard;
+        clickedCard.style.display = 'none';
 
-        let firstCardImg = firstCard.querySelector('img');
-        let secondCardImg = secondCard.querySelector('img');
-        cardMatch(firstCardImg, secondCardImg);
+        for(let card of board) {
+            if (backCardId === card.cardBack) {
+                let frontImage = document.getElementById(`front${card.id}`).
+                querySelector('.front-image img')
+                frontImage.style.display = 'block';
+
+                clickedCard.classList.remove('flip-over')
+                if (!firstCard) {
+                    return firstCard = clickedCard;
+                }
+                secondCard = clickedCard;
+
+                let firstCardImg;
+                let secondCardImg;
+                // console.log(firstCard)
+                // console.log(secondCard)
+                if (firstCard.id) {
+                    firstCardImg = card.id;
+                }
+                if (secondCard.id) {
+                    secondCardImg = card.id;
+                }
+                cardMatch(firstCardImg, secondCardImg);
+            }
+        }
     }
 }
 
 function cardMatch(firstImg, secondImg) {
+    if (firstImg === secondImg) {
+        return console.log('cards match');
+    }
 }
 
 function handleButton(evt) {

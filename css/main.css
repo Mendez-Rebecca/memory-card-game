@@ -92,21 +92,24 @@ button {
     width: calc(100% / 4 - 10px);
 }
 
-.card .back-image img{
+.card .back-image img {
     display: none;
     border-radius: 5px;
     max-width: 100px;
 }
 
-.card .front-image img{
+.card .front-image img {
     max-width: 100px;
     border-radius: 5px;
 }
 
-.card.flip-over .back-image img {
+.flip-over img {
     display: none;
+    max-width: 100px;
+    border-radius: 5px;
 }
 
-.card.flip-over .front-image img {
-    display: block;
+.card .flip-over .front-image img{
+    max-width: 100px;
+    border-radius: 5px;
 }
