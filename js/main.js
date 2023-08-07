@@ -18,7 +18,7 @@ const board = [
 
 /*----- app's state (variables) -----*/
 let successes = 0;
-let clicks;
+let clicks = 0;
 let firstCard;
 let secondCard;
 let isActive = true;
@@ -47,11 +47,13 @@ function handleCards(evt) {
     if (!isActive) return;
     let clickedCard = evt.target;
     let backCardId = clickedCard.id;
-    if (evt.target.tagName !== 'IMG') return;
+    if (evt.target.tagName !== 'IMG' || clickedCard.classList.contains('flip-over')) return;
     if (clickedCard !== firstCard) {
         clickedCard.classList.add('flip-over')
         clickedCard.style.display = 'none';
-
+    if ('click') {
+        clicks += 1;
+    }
         for(let card of board) {
             if (backCardId === card.cardBack) {
                 let frontImage = document.getElementById(`front${card.id}`).
@@ -72,8 +74,12 @@ function handleCards(evt) {
                 secondCard = `${card.id}`
             }
         }
+        console.log(clicks)
         isActive = false;
-        cardMatch(firstCard, secondCard);
+        if (clicks === 2) {
+            cardMatch(firstCard, secondCard);
+        }
+        clicks = 0;
     }
 }
 
@@ -88,8 +94,12 @@ function cardMatch(firstImg, secondImg) {
             let cardImageTwo = document.getElementById(`front${card.match}`).
                 querySelector('.front-image img')
                 cardImageTwo.style.display = 'none';
+                console.log(clicks)
+                isActive = true;
+                firstCard = null;
+                secondCard = null;
         } else {
-            console.log(`cards do not match`)
+
         }
     }
 }
