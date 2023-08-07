@@ -2,26 +2,26 @@
 const cards = document.querySelectorAll('.card')
 
 const board = [
-  { id: 1, cardBack: 'back1' },
-  { id: 2, cardBack: 'back2' },
-  { id: 3, cardBack: 'back3' },
-  { id: 4, cardBack: 'back4' },
-  { id: 5, cardBack: 'back5' },
-  { id: 6, cardBack: 'back6' },
-  { id: 7, cardBack: 'back7' },
-  { id: 8, cardBack: 'back8' },
-  { id: 9, cardBack: 'back9' },
-  { id: 10, cardBack: 'back10' },
-  { id: 11, cardBack: 'back11' },
-  { id: 12, cardBack: 'back12' },
+  { id: '1', match: '7', cardBack: 'back1' },
+  { id: '2', match: '8', cardBack: 'back2' },
+  { id: '3', match: '9', cardBack: 'back3' },
+  { id: '4', match: '10', cardBack: 'back4' },
+  { id: '5', match: '11', cardBack: 'back5' },
+  { id: '6', match: '12', cardBack: 'back6' },
+  { id: '7', match: '1', cardBack: 'back7' },
+  { id: '8', match: '2', cardBack: 'back8' },
+  { id: '9', match: '3', cardBack: 'back9' },
+  { id: '10', match: '4', cardBack: 'back10' },
+  { id: '11', match: '5', cardBack: 'back11' },
+  { id: '12', match: '6', cardBack: 'back12' },
 ];
 
 /*----- app's state (variables) -----*/
-let successes;
+let successes = 0;
 let clicks;
 let firstCard;
 let secondCard;
-let isActive = false;
+let isActive = true;
 
 
 /*----- cached element references -----*/
@@ -44,9 +44,9 @@ cards.forEach(card => {
 })
 
 function handleCards(evt) {
+    if (!isActive) return;
     let clickedCard = evt.target;
     let backCardId = clickedCard.id;
-
     if (evt.target.tagName !== 'IMG') return;
     if (clickedCard !== firstCard) {
         clickedCard.classList.add('flip-over')
@@ -57,32 +57,40 @@ function handleCards(evt) {
                 let frontImage = document.getElementById(`front${card.id}`).
                 querySelector('.front-image img')
                 frontImage.style.display = 'block';
-
                 clickedCard.classList.remove('flip-over')
                 if (!firstCard) {
                     return firstCard = clickedCard;
                 }
                 secondCard = clickedCard;
-
-                let firstCardImg;
-                let secondCardImg;
-                // console.log(firstCard)
-                // console.log(secondCard)
-                if (firstCard.id) {
-                    firstCardImg = card.id;
-                }
-                if (secondCard.id) {
-                    secondCardImg = card.id;
-                }
-                cardMatch(firstCardImg, secondCardImg);
             }
         }
+        for (let card of board) {
+            if (firstCard.id === card.cardBack) {
+                firstCard = `${card.id}`
+            }
+            if (secondCard.id === card.cardBack) {
+                secondCard = `${card.id}`
+            }
+        }
+        isActive = false;
+        cardMatch(firstCard, secondCard);
     }
 }
 
 function cardMatch(firstImg, secondImg) {
-    if (firstImg === secondImg) {
-        return console.log('cards match');
+    for (let card of board) {
+
+        if (firstImg === card.id && secondImg === card.match) {
+            successes += 1;
+            let cardImageOne = document.getElementById(`front${card.id}`).
+                querySelector('.front-image img')
+                cardImageOne.style.display = 'none';
+            let cardImageTwo = document.getElementById(`front${card.match}`).
+                querySelector('.front-image img')
+                cardImageTwo.style.display = 'none';
+        } else {
+            console.log(`cards do not match`)
+        }
     }
 }
 
