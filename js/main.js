@@ -85,23 +85,30 @@ function handleCards(evt) {
 
 function cardMatch(firstImg, secondImg) {
     for (let card of board) {
-
+        console.log(firstImg)
+        console.log(secondImg)
         if (firstImg === card.id && secondImg === card.match) {
             successes += 1;
-            let cardImageOne = document.getElementById(`front${card.id}`).
-                querySelector('.front-image img')
-                cardImageOne.style.display = 'none';
-            let cardImageTwo = document.getElementById(`front${card.match}`).
-                querySelector('.front-image img')
-                cardImageTwo.style.display = 'none';
+            if (successes === 6) {
+                getWin();
+            }
                 console.log(clicks)
                 isActive = true;
                 firstCard = null;
                 secondCard = null;
-        } else {
-
+        } else if (firstImg === card.id && secondImg !== card.match) {
+            let firstFrontImage = document.getElementById(`front${firstImg}`).
+                querySelector('.front-image img')
+                firstFrontImage.style.display = 'none';
+            let secondFrontImage = document.getElementById(`front${secondImg}`).
+                querySelector('.front-image img')
+                secondFrontImage.style.display = 'none';
         }
     }
+}
+
+function getWin() {
+    console.log(`you won!`);
 }
 
 function handleButton(evt) {
