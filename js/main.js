@@ -23,6 +23,21 @@ let firstCard;
 let secondCard;
 let isActive = true;
 
+let deck = [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+]
+
 
 /*----- cached element references -----*/
 const buttonEl = document.querySelector('button');
@@ -95,8 +110,8 @@ function cardMatch(firstImg, secondImg) {
                 isActive = true;
                 firstCard = null;
                 secondCard = null;
-        } else {
-            // (firstImg === card.id && secondImg !== card.match)
+        } else if
+            (firstImg === card.id && secondImg !== card.match) {
             let firstFrontImage = document.getElementById(`front${firstImg}`).
                 querySelector('.front-image img')
                 firstFrontImage.style.display = 'none';
@@ -118,7 +133,10 @@ function cardMatch(firstImg, secondImg) {
 
 
 function getWin() {
-    console.log(`you won!`);
+    const changeHeading = document.querySelector('h1');
+    changeHeading.innerText = `Congratulations! You matched all the cards!`;
+    buttonEl.innerText = 'Reset Game';
+    buttonEl.style.visibility = 'visible';
 }
 
 function handleButton(evt) {
