@@ -24,18 +24,7 @@ let secondCard;
 let isActive = true;
 
 let deck = [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
 ]
 
 
@@ -112,21 +101,24 @@ function cardMatch(firstImg, secondImg) {
                 secondCard = null;
         } else if
             (firstImg === card.id && secondImg !== card.match) {
-            let firstFrontImage = document.getElementById(`front${firstImg}`).
-                querySelector('.front-image img')
-                firstFrontImage.style.display = 'none';
-            let secondFrontImage = document.getElementById(`front${secondImg}`).
-                querySelector('.front-image img')
-                secondFrontImage.style.display = 'none';
-            let firstBackImage = document.getElementById(`back${firstImg}`).
-                querySelector('.back-image img')
-                firstBackImage.style.display = 'block';
-            let secondBackImage = document.getElementById(`back${secondImg}`).
-                querySelector('.back-image img')
-                secondBackImage.style.display = 'block';
-                isActive = true;
-                firstCard = null;
-                secondCard = null;
+                const flipBack = setInterval(function() {
+                    let firstFrontImage = document.getElementById(`front${firstImg}`).
+                        querySelector('.front-image img')
+                        firstFrontImage.style.display = 'none';
+                    let secondFrontImage = document.getElementById(`front${secondImg}`).
+                        querySelector('.front-image img')
+                        secondFrontImage.style.display = 'none';
+                    let firstBackImage = document.getElementById(`back${firstImg}`).
+                        querySelector('.back-image img')
+                        firstBackImage.style.display = 'block';
+                    let secondBackImage = document.getElementById(`back${secondImg}`).
+                        querySelector('.back-image img')
+                        secondBackImage.style.display = 'block';
+                        isActive = true;
+                        firstCard = null;
+                        secondCard = null;
+                        clearInterval(flipBack);
+                }, 1000)
             }
         }
     }
