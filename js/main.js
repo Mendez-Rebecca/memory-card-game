@@ -31,6 +31,7 @@ let deck = [
 /*----- cached element references -----*/
 const buttonEl = document.querySelector('button');
 const countdownEl = document.getElementById('countdown-timer');
+const changeHeading = document.querySelector('h1');
 
 
 /*----- event listeners -----*/
@@ -125,16 +126,32 @@ function cardMatch(firstImg, secondImg) {
 
 
 function getWin() {
-    const changeHeading = document.querySelector('h1');
     changeHeading.innerText = `Congratulations! You matched all the cards!`;
     buttonEl.innerText = 'Reset Game';
     buttonEl.style.visibility = 'visible';
 }
 
+function resetGame() {
+    changeHeading.innerText = 'Memory Card Game';
+    buttonEl.style.visibility = 'hidden';
+    successes = 0;
+    cards.forEach(card => {
+        const frontImage = card.querySelector('.front-image img');
+        const backImage = card.querySelector('.back-image img');
+        frontImage.style.display = 'none';
+        backImage.style.display = 'block';
+        card.classList.remove('flip-over');
+    });
+}
+
 function handleButton(evt) {
     if (evt.target.tagName !== 'BUTTON') return;
-    buttonEl.style.visibility = 'hidden';
-    countdown();
+    if (buttonEl.innerText === 'Start Game') {
+        buttonEl.style.visibility = 'hidden';
+        countdown();
+    } else if (buttonEl.innerText === 'Reset Game') {
+        resetGame();
+    }
 }
 
 function countdown() {
@@ -143,7 +160,7 @@ function countdown() {
     countdownEl.innerText = count;
     const timer = setInterval(function() {
         count--;
-        if (count) {
+        if (count > 0) {
             countdownEl.innerText = count;
         } else {
             clearInterval(timer);
@@ -158,12 +175,12 @@ function renderCards() {
         const frontImage = card.querySelector('.front-image img');
         const backImage = card.querySelector('.back-image img');
 
-        if (frontImage.style.display !== 'none') {
-            frontImage.style.display = 'none';
-            backImage.style.display = 'block';
-        } else {
-            backImage.style.display = 'none';
+        if (frontImage.style.display === 'none') {
             frontImage.style.display = 'block';
+            backImage.style.display = 'none';
+        } else {
+            backImage.style.display = 'block';
+            frontImage.style.display = 'none';
         }
     });
 }
