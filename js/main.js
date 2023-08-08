@@ -2,18 +2,18 @@
 const cards = document.querySelectorAll('.card')
 
 const board = [
-  { id: '1', match: '7', cardBack: 'back1' },
-  { id: '2', match: '8', cardBack: 'back2' },
-  { id: '3', match: '9', cardBack: 'back3' },
-  { id: '4', match: '10', cardBack: 'back4' },
-  { id: '5', match: '11', cardBack: 'back5' },
-  { id: '6', match: '12', cardBack: 'back6' },
-  { id: '7', match: '1', cardBack: 'back7' },
-  { id: '8', match: '2', cardBack: 'back8' },
-  { id: '9', match: '3', cardBack: 'back9' },
-  { id: '10', match: '4', cardBack: 'back10' },
-  { id: '11', match: '5', cardBack: 'back11' },
-  { id: '12', match: '6', cardBack: 'back12' },
+    { id: '1', match: '7', cardBack: 'back1' },
+    { id: '2', match: '8', cardBack: 'back2' },
+    { id: '3', match: '9', cardBack: 'back3' },
+    { id: '4', match: '10', cardBack: 'back4' },
+    { id: '5', match: '11', cardBack: 'back5' },
+    { id: '6', match: '12', cardBack: 'back6' },
+    { id: '7', match: '1', cardBack: 'back7' },
+    { id: '8', match: '2', cardBack: 'back8' },
+    { id: '9', match: '3', cardBack: 'back9' },
+    { id: '10', match: '4', cardBack: 'back10' },
+    { id: '11', match: '5', cardBack: 'back11' },
+    { id: '12', match: '6', cardBack: 'back12' },
 ];
 
 /*----- app's state (variables) -----*/
@@ -49,13 +49,17 @@ cards.forEach(card => {
 })
 
 function handleCards(evt) {
-    if (!isActive) return;
+    if (evt.target.classList.contains('flipped')) return;
+    if (isActive) return;
+
     let clickedCard = evt.target;
     let backCardId = clickedCard.id;
+
     if (evt.target.tagName !== 'IMG' || clickedCard.classList.contains('flip-over')) return;
     if (clickedCard !== firstCard) {
         clickedCard.classList.add('flip-over')
         clickedCard.style.display = 'none';
+
     if ('click') {
         clicks += 1;
     }
@@ -65,6 +69,11 @@ function handleCards(evt) {
                 querySelector('.front-image img')
                 frontImage.style.display = 'block';
                 clickedCard.classList.remove('flip-over')
+
+                if (frontImage.style.display === 'block') {
+                    frontImage.classList.add('flipped')
+                }
+
                 if (!firstCard) {
                     return firstCard = clickedCard;
                 }
@@ -79,25 +88,22 @@ function handleCards(evt) {
                 secondCard = `${card.id}`
             }
         }
-        console.log(clicks)
-        isActive = false;
         if (clicks === 2) {
             cardMatch(firstCard, secondCard);
         }
+        isActive = false;
         clicks = 0;
     }
 }
 
 function cardMatch(firstImg, secondImg) {
     for (let card of board) {
-        console.log(firstImg)
-        console.log(secondImg)
         if (firstImg === card.id && secondImg === card.match) {
             successes += 1;
             if (successes === 6) {
                 getWin();
             }
-                isActive = true;
+                isActive = false;
                 firstCard = null;
                 secondCard = null;
         } else if
@@ -115,7 +121,8 @@ function cardMatch(firstImg, secondImg) {
                     let secondBackImage = document.getElementById(`back${secondImg}`).
                         querySelector('.back-image img')
                         secondBackImage.style.display = 'block';
-                        isActive = true;
+
+                        isActive = false;
                         firstCard = null;
                         secondCard = null;
                         clearInterval(flipBack);
@@ -169,6 +176,7 @@ function countdown() {
             renderCards();
         }
     }, 1000)
+    isActive = false;
 }
 
 function renderCards() {
