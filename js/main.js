@@ -133,15 +133,16 @@ function getWin() {
 
 function resetGame() {
     changeHeading.innerText = 'Memory Card Game';
-    buttonEl.style.visibility = 'hidden';
     successes = 0;
     cards.forEach(card => {
         const frontImage = card.querySelector('.front-image img');
         const backImage = card.querySelector('.back-image img');
-        frontImage.style.display = 'none';
-        backImage.style.display = 'block';
-        card.classList.remove('flip-over');
+        {
+            frontImage.style.display = 'block';
+            backImage.style.display = 'none';
+        }
     });
+    buttonEl.innerText = 'Start Game';
 }
 
 function handleButton(evt) {
