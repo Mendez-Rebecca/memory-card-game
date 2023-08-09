@@ -19,12 +19,14 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    color: #065774
 }
 
 h2 {
     position: absolute;
     top: 40%;
     right: 68%;
+    color: #065774
 }
 
 button {
