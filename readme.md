@@ -24,7 +24,7 @@ All images used for the creation of this game were free for use found at [Canva]
 
 ## The Game
 
-The deployed memory game can be found "here."
+The deployed memory game can be found [here](https://mendez-rebecca.github.io/memory-card-game/).
 
 To begin the game, simply click the button "Start Game" to initiate the countdown.
 Match like image pairs until all cards are showing.
